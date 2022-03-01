@@ -6,6 +6,16 @@
     android:theme="@style/Theme.AppWidgetResize.AppWidgetContainer"
     android:background="@color/black">
 
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:layout_gravity="center_vertical|start"
+        android:layout_margin="4dp"
+        android:layout_weight="0"
+        android:src="@android:drawable/ic_media_play"
+        android:contentDescription="@string/start" />
+
     <TextView
         android:id="@+id/appwidget_text1"
         android:layout_width="wrap_content"
