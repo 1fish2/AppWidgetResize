@@ -3,12 +3,15 @@ package com.onefishtwo.appwidgetresize;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
+import android.os.Bundle;
+import android.util.Log;
 import android.widget.RemoteViews;
 
 /**
  * Implementation of App Widget functionality.
  */
 public class Widget extends AppWidgetProvider {
+    public static final String TAG = "AppWidgetProvider";
 
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
             int appWidgetId) {
@@ -26,12 +29,11 @@ public class Widget extends AppWidgetProvider {
     }
 
     @Override
-    public void onEnabled(Context context) {
-        // Enter relevant functionality for when the first widget is created
-    }
+    public void onAppWidgetOptionsChanged(Context context, AppWidgetManager appWidgetManager,
+            int appWidgetId, Bundle newOptions) {
+        super.onAppWidgetOptionsChanged(context, appWidgetManager, appWidgetId, newOptions);
 
-    @Override
-    public void onDisabled(Context context) {
-        // Enter relevant functionality for when the last widget is disabled
+        newOptions.keySet(); // reify the Bundle so .toString() will elaborate
+        Log.i(TAG, "*** WidgetOptionsChanged: " + newOptions);
     }
 }
